@@ -1,18 +1,13 @@
-FROM python:3.11
+FROM python:3.10
 
-# ENV PYTHONUNBUFFERED 1
+# Set the working directory in the container
+WORKDIR /app
 
-WORKDIR /usr/src/app
+# Copy the application files into the working directory
+COPY . /app
 
-RUN apt-get update && apt-get install build-essential -y
+# Install the application dependencies
+RUN pip install -r requirements.txt
 
-COPY requirements.txt .
-
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
-
-COPY . .
-
-CMD [ "python", "src/main.py"]
-
-EXPOSE 8000
+# Define the entry point for the container
+CMD ["uvicorn", "run", "--host=0.0.0.0"]
