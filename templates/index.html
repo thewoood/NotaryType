@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>تبدیل متن دفترخونه</title>
+</head>
+<body>
+    <h2>متن ورودی:</h2>
+    <form action="/" method="post">
+        <input type="text" name="text" id="textInput" placeholder="متن خود را وارد کنید..." value={{ original_text }}>
+        <button type="submit">تبدیل</button>
+        <button type="button" onclick="clearText()">پاک</button>
+
+    </form>
+
+    <h2>متن خروجی:</h2>
+    <form>
+        <input type="text" id="myInput" value={{ result_text }}>
+        <button type="button" onclick="copyToClipboard()">کپی</button>
+    </form>
+
+    <script>
+        function copyToClipboard() {
+            var inputElement = document.getElementById("myInput");
+            inputElement.select();
+            document.execCommand("copy");
+        }
+
+        function clearText() {
+            document.getElementById("textInput").value = "";
+        }
+    </script>
+</body>
+</html>
