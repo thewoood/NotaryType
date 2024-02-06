@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install build-essential -y
 
 COPY requirements.txt .
 
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -y --upgrade pip && \
+    pip install --no-cache-dir -y -r requirements.txt
 
 COPY . .
 
