@@ -10,4 +10,5 @@ COPY . /app
 RUN pip install -r requirements.txt
 
 # Define the entry point for the container
-CMD ["uvicorn", "run", "--host=0.0.0.0"]
+CMD ["uvicorn", "run", "src.main:app", "--host=0.0.0.0"]
+
