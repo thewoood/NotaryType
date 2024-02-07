@@ -1,5 +1,5 @@
 import uvicorn
-from backend.routes.text import router
+from ..src.backend.routes.text import router
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
