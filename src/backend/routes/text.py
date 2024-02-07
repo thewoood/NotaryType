@@ -2,7 +2,7 @@ from fastapi import APIRouter, Request, Form
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
-from backend.core.text import modify_text
+from ..core.text import modify_text
 
 router = APIRouter()
 templates = Jinja2Templates(directory="templates")
