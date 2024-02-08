@@ -11,4 +11,5 @@ templates = Jinja2Templates(directory="templates")
 @router.post("/", response_class=HTMLResponse)
 async def submit_form(request: Request, text: str = Form(default="")):
     result_text = modify_text(text=text)
-    return templates.TemplateResponse("index.html", {"request": request, "original_text": text, "result_text": result_text})
+    place_holder_text = text
+    return templates.TemplateResponse("index.html", {"request": request, "original_text": place_holder_text, "result_text": result_text})

@@ -5,8 +5,8 @@
 </head>
 <body>
     <h2>متن ورودی:</h2>
-    <form action="/" method="post">
-        <input type="text" name="text" id="textInput" placeholder="متن خود را وارد کنید..." value={{ original_text }}>
+    <form action="/" method="post" autocomplete="on">
+        <textarea type="text" name="text" rows="5" cols="30" id="input" autofocus placeholder="متن خود را وارد کنید..." autocomplete="on">{{ original_text }}</textarea>
         <button type="submit">تبدیل</button>
         <button type="button" onclick="clearText()">پاک</button>
 
@@ -14,19 +14,19 @@
 
     <h2>متن خروجی:</h2>
     <form>
-        <input type="text" id="myInput" value={{ result_text }}>
+        <textarea type="text" id="output" rows="5" cols="30">{{ result_text }}</textarea>
         <button type="button" onclick="copyToClipboard()">کپی</button>
     </form>
 
     <script>
         function copyToClipboard() {
-            var inputElement = document.getElementById("myInput");
+            var inputElement = document.getElementById("output");
             inputElement.select();
             document.execCommand("copy");
         }
 
         function clearText() {
-            document.getElementById("textInput").value = "";
+            document.getElementById("input").value = "";
         }
     </script>
 </body>
